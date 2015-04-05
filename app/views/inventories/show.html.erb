@@ -1,0 +1,34 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <strong>Name:</strong>
+  <%= best_in_place @inventory, :name, as: :input %>
+</p>
+
+<p>
+  <strong>Description:</strong>
+  <%= best_in_place @inventory, :description, as: :textarea %>
+</p>
+
+<p>
+  <strong>Value:</strong>
+  <%= best_in_place @inventory, :value, as: :input %>
+</p>
+
+<p>
+  <strong>Used:</strong>
+  <%= best_in_place @inventory, :used, as: :checkbox, collection: ["No, thanks", "Yes, of course!"] %>
+</p>
+
+<p>
+  <strong>Stored:</strong>
+  <%= best_in_place @inventory, :stored, as: :checkbox, collection: { false: "Nope", true: "Yep" } %>
+</p>
+
+<p>
+  <strong>Location:</strong>
+  <%= best_in_place @inventory, :location_id, as: :select, collection: Location.all.map { |l| [l.id, l.full ]} %>
+</p>
+
+<%= link_to 'Edit', edit_inventory_path(@inventory) %> |
+<%= link_to 'Back', inventories_path %>
